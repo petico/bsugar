@@ -1,0 +1,2 @@
+module BsColumnsHelper
+end

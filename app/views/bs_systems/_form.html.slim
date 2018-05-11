@@ -1,0 +1,17 @@
+= form_for @bs_system do |f|
+  - if @bs_system.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@bs_system.errors.count, "error")} prohibited this bs_system from being saved:"
+      ul
+        - @bs_system.errors.full_messages.each do |message|
+          li = message
+  .form-group.row
+    .col-sm-3 = f.label :bs_project_id
+    .col-sm-9 = f.collection_select :bs_project_id, BsProject.all, :id, :name, {include_blank: true}, class: "form-control"
+  .form-group.row
+    .col-sm-3 = f.label :name
+    .col-sm-9 = f.text_field :name, class: "form-control"
+  .form-group.row
+    .col-sm-3 = f.label :description
+    .col-sm-9 = f.text_field :description, class: "form-control"
+  .actions = f.submit class:"btn btn-success"

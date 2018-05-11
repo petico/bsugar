@@ -1,0 +1,55 @@
+h1 =t('action.list', name: BsColumn.model_name.human) 
+
+table.table.table-hover.table-striped.table-bordered.table-sm
+  thead.thead-light
+    tr
+      th = BsColumn.human_attribute_name(:bs_table_id)
+      th = BsColumn.human_attribute_name(:rowno)
+      th = BsColumn.human_attribute_name(:logical)
+      th = BsColumn.human_attribute_name(:physical)
+      th = BsColumn.human_attribute_name(:pk)
+      th = BsColumn.human_attribute_name(:fk)
+      th = BsColumn.human_attribute_name(:uq)
+      th = BsColumn.human_attribute_name(:nn)
+      th = BsColumn.human_attribute_name(:bs_type_id)
+      th = BsColumn.human_attribute_name(:precision)
+      th = BsColumn.human_attribute_name(:scale)
+      th = BsColumn.human_attribute_name(:df)
+      th = BsColumn.human_attribute_name(:remark)
+      th = BsColumn.human_attribute_name(:ver)
+      th = BsColumn.human_attribute_name(:rev)
+      th = BsColumn.human_attribute_name(:locked)
+      th = BsColumn.human_attribute_name(:delflag)
+
+
+  tbody
+    - @bs_columns.each do |bs_column|
+      tr.pt-tr data-href="#{bs_column_path(bs_column)}"
+        td = bs_column.bs_table_id
+        td = bs_column.rowno
+        td = bs_column.logical
+        td = bs_column.physical
+        td = bs_column.pk
+        td = bs_column.fk
+        td = bs_column.uq
+        td = bs_column.nn
+        td = bs_column.bs_type_id
+        td = bs_column.precision
+        td = bs_column.scale
+        td = bs_column.df
+        td = bs_column.remark
+        td = bs_column.ver
+        td = bs_column.rev
+        td = bs_column.locked
+        td = bs_column.delflag
+.text-right
+  = link_to t('action.add', name: BsColumn.model_name.human), new_bs_column_path, class: "btn btn-primary"
+
+- content_for :localnavi do
+  ul.navbar-nav.flex-column.mr-auto
+
+    li |list2
+    li |list4
+
+javascript:
+  new TableClick

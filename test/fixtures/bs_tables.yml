@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bs_system_id: 1
+  logical: MyString
+  physical: MyString
+  remark: MyString
+  bs_db_id: 1
+  delflag: false
+
+two:
+  bs_system_id: 1
+  logical: MyString
+  physical: MyString
+  remark: MyString
+  bs_db_id: 1
+  delflag: false

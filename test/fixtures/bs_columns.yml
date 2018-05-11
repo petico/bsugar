@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bs_table_id: 1
+  rowno: 1
+  logical: MyString
+  physical: MyString
+  pk: false
+  fk: false
+  uq: false
+  nn: false
+  bs_type_id: 1
+  precision: 1
+  scale: 1
+  df: MyString
+  remark: MyString
+  remark: MyString
+  ver: MyString
+  rev: 1
+  locked: false
+  delflag: false
+
+two:
+  bs_table_id: 1
+  rowno: 1
+  logical: MyString
+  physical: MyString
+  pk: false
+  fk: false
+  uq: false
+  nn: false
+  bs_type_id: 1
+  precision: 1
+  scale: 1
+  df: MyString
+  remark: MyString
+  remark: MyString
+  ver: MyString
+  rev: 1
+  locked: false
+  delflag: false

@@ -1,0 +1,63 @@
+= form_for @bs_column do |f|
+  - if @bs_column.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@bs_column.errors.count, "error")} prohibited this bs_column from being saved:"
+      ul
+        - @bs_column.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :bs_table_id
+    = f.number_field :bs_table_id
+  .field
+    = f.label :rowno
+    = f.number_field :rowno
+  .field
+    = f.label :logical
+    = f.text_field :logical
+  .field
+    = f.label :physical
+    = f.text_field :physical
+  .field
+    = f.label :pk
+    = f.check_box :pk
+  .field
+    = f.label :fk
+    = f.check_box :fk
+  .field
+    = f.label :uq
+    = f.check_box :uq
+  .field
+    = f.label :nn
+    = f.check_box :nn
+  .field
+    = f.label :bs_type_id
+    = f.number_field :bs_type_id
+  .field
+    = f.label :precision
+    = f.number_field :precision
+  .field
+    = f.label :scale
+    = f.number_field :scale
+  .field
+    = f.label :df
+    = f.text_field :df
+  .field
+    = f.label :remark
+    = f.text_field :remark
+  .field
+    = f.label :remark
+    = f.text_field :remark
+  .field
+    = f.label :ver
+    = f.text_field :ver
+  .field
+    = f.label :rev
+    = f.number_field :rev
+  .field
+    = f.label :locked
+    = f.check_box :locked
+  .field
+    = f.label :delflag
+    = f.check_box :delflag
+  .actions = f.submit

@@ -1,0 +1,2 @@
+class BsColumn < ApplicationRecord
+end

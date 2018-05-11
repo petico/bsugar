@@ -1,0 +1,9 @@
+.card.border-primary
+  .card-body
+    h1.card-title = t('action.edit', name: BsTable.model_name.human)
+    == render 'form'
+
+=> link_to 'Show', @bs_table
+'|
+=< link_to 'Back', bs_tables_path
+

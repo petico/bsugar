@@ -1,0 +1,16 @@
+p#notice = notice
+
+.jumbotron
+  dl.row
+    dt.col-sm-3 = BsSystem.human_attribute_name(:bs_project_id)
+    dd.col-sm-9 = @bs_system.bs_project_name
+  dl.row
+    dt.col-sm-3 = BsSystem.human_attribute_name(:name)
+    dd.col-sm-9 = @bs_system.name
+  dl.row
+    dt.col-sm-3 = BsSystem.human_attribute_name(:description)
+    dd.col-sm-9 = @bs_system.description
+
+=> link_to 'Edit', edit_bs_system_path(@bs_system)
+'|
+=< link_to 'Back', bs_systems_path

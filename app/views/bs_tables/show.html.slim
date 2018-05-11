@@ -1,0 +1,26 @@
+p#notice = notice
+
+.jumbotron
+  dl.row
+    dt.col-sm-3 = BsTable.human_attribute_name(:bs_system_id)
+    dd.col-sm-9 = @bs_table.bs_system_name
+  dl.row
+    dt.col-sm-3 = BsTable.human_attribute_name(:logical)
+    dd.col-sm-9 = @bs_table.logical
+  dl.row
+    dt.col-sm-3 = BsTable.human_attribute_name(:physical)
+    dd.col-sm-9 = @bs_table.physical
+  dl.row
+    dt.col-sm-3 = BsTable.human_attribute_name(:remark)
+    dd.col-sm-9 = @bs_table.remark
+  dl.row
+    dt.col-sm-3 = BsTable.human_attribute_name(:bs_db_id)
+    dd.col-sm-9 = @bs_table.bs_db_name
+  dl.row
+    dt.col-sm-3 = BsTable.human_attribute_name(:delflag)
+    dd.col-sm-9 = @bs_table.delflag
+
+
+=> link_to 'Edit', edit_bs_table_path(@bs_table)
+'|
+=< link_to 'Back', bs_tables_path

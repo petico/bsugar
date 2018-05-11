@@ -1,0 +1,60 @@
+p#notice = notice
+
+p
+  strong Bs table:
+  = @bs_column.bs_table_id
+p
+  strong Rowno:
+  = @bs_column.rowno
+p
+  strong Logical:
+  = @bs_column.logical
+p
+  strong Physical:
+  = @bs_column.physical
+p
+  strong Pk:
+  = @bs_column.pk
+p
+  strong Fk:
+  = @bs_column.fk
+p
+  strong Uq:
+  = @bs_column.uq
+p
+  strong Nn:
+  = @bs_column.nn
+p
+  strong Bs type:
+  = @bs_column.bs_type_id
+p
+  strong Precision:
+  = @bs_column.precision
+p
+  strong Scale:
+  = @bs_column.scale
+p
+  strong Df:
+  = @bs_column.df
+p
+  strong Remark:
+  = @bs_column.remark
+p
+  strong Remark:
+  = @bs_column.remark
+p
+  strong Ver:
+  = @bs_column.ver
+p
+  strong Rev:
+  = @bs_column.rev
+p
+  strong Locked:
+  = @bs_column.locked
+p
+  strong Delflag:
+  = @bs_column.delflag
+
+=> link_to 'Edit', edit_bs_column_path(@bs_column)
+'|
+=< link_to 'Back', bs_columns_path

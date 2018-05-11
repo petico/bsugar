@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title = Settings.system.name
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body style="padding-top:4.5rem;"
+    .container-fluid
+      nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+        = link_to Settings.system.name, root_path, class: "navbar-brand"
+        button.navbar-toggler type="button" data-toggle="collapse" data-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="レスポンシブル"
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse id="Navbar"
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+            li.nav-item
+              = link_to BsProject.model_name.human, bs_projects_path, class: "nav-link"
+            li.nav-item.dropdown
+              = link_to BsSystem.model_name.human, bs_systems_path, class: "nav-link"
+            li.nav-item
+              = link_to BsTable.model_name.human, bs_tables_path, class: "nav-link"
+            li.nav-item.dropdown
+              = link_to BsColumn.model_name.human, bs_columns_path, class: "nav-link"
+            li.nav-item
+              .nav-link = link_to "Route", "/rails/info/routes"
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                = t('menu.system')
+              .dropdown-menu aria-labelledby="navbarDropdown"
+                = link_to BsDb.model_name.human, bs_dbs_path, class: "dropdown-item"
+                = link_to BsType.model_name.human, bs_types_path, class: "dropdown-item"
+    .container-fluid
+      .row.clear-fix
+        nav.col-sm-3.col-md-2.sidebar.navbar-light.bg-light.hover
+          .sidebar-sticky
+            = yield :localnavi
+        .col-sm-9.col.md-10.main
+          = yield
+    javascript:
+      new PetiInit

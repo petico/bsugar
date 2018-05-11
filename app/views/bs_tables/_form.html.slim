@@ -1,0 +1,27 @@
+= form_for @bs_table do |f|
+  - if @bs_table.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@bs_table.errors.count, "error")} prohibited this bs_table from being saved:"
+      ul
+        - @bs_table.errors.full_messages.each do |message|
+          li = message
+
+  .form-group.row
+    .col-sm-3 = f.label :bs_system_id
+    .col-sm-9 = f.collection_select :bs_system_id, BsSystem.all, :id, :name, {}, class: "form-control"
+  .form-group.row
+    .col-sm-3 = f.label :logical
+    .col-sm-9 = f.text_field :logical, class: "form-control"
+  .form-group.row
+    .col-sm-3 = f.label :physical
+    .col-sm-9 = f.text_field :physical, class: "form-control"
+  .form-group.row
+    .col-sm-3 = f.label :remark
+    .col-sm-9 = f.text_field :remark, class: "form-control"
+  .form-group.row
+    .col-sm-3 = f.label :bs_db_id
+    .col-sm-9 = f.collection_select :bs_db_id, BsDb.all, :id, :name, { include_blank: true}, class: "form-control"
+  .form-group.row
+    .col-sm-3 = f.label :delflag
+    .col-sm-9 = f.check_box :delflag, class: "form-control"
+  .actions = f.submit class:"btn btn-success"

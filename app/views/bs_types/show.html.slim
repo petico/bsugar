@@ -1,0 +1,23 @@
+p#notice = notice
+
+.jumbotron
+  dl.row
+    dt.col-sm-3 = BsType.human_attribute_name(:bs_db_id)
+    dd.col-sm-9 = @bs_type.bs_db_id
+  dl.row
+    dt.col-sm-3 = BsType.human_attribute_name(:name)
+    dd.col-sm-9 = @bs_type.name
+  dl.row
+    dt.col-sm-3 = BsType.human_attribute_name(:short_name)
+    dd.col-sm-9 = @bs_type.short_name
+  dl.row
+    dt.col-sm-3 = BsType.human_attribute_name(:is_scale)
+    dd.col-sm-9 = @bs_type.is_scale
+  dl.row
+    dt.col-sm-3 = BsType.human_attribute_name(:delflag)
+    dd.col-sm-9 = @bs_type.delflag
+
+
+=> link_to 'Edit', edit_bs_type_path(@bs_type)
+'|
+=< link_to 'Back', bs_types_path

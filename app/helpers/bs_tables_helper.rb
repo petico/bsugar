@@ -1,0 +1,2 @@
+module BsTablesHelper
+end

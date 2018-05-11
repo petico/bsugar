@@ -1,0 +1,13 @@
+p#notice = notice
+
+.jumbotron
+  dl.row
+    dt.col-sm-3 = BsDb.human_attribute_name(:name)
+    dd.col-sm-9 = @bs_db.name
+  dl.row
+    dt.col-sm-3 = BsDb.human_attribute_name(:delflag)
+    dd.col-sm-9 = @bs_db.delflag
+
+=> link_to 'Edit', edit_bs_db_path(@bs_db)
+'|
+=< link_to 'Back', bs_dbs_path
