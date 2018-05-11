@@ -1,4 +1,4 @@
-= form_for @bs_system do |f|
+= form_for [@bs_project, @bs_system] do |f|
   - if @bs_system.errors.any?
     #error_explanation
       h2 = "#{pluralize(@bs_system.errors.count, "error")} prohibited this bs_system from being saved:"

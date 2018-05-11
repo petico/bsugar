@@ -4,7 +4,8 @@ class BsSystemsController < ApplicationController
   # GET /bs_systems
   # GET /bs_systems.json
   def index
-    @bs_systems = BsSystem.all
+    @bs_project = BsProject.find(params[:bs_project_id])
+    @bs_systems = @bs_project.bs_systems.all
   end
 
   # GET /bs_systems/1
@@ -14,7 +15,8 @@ class BsSystemsController < ApplicationController
 
   # GET /bs_systems/new
   def new
-    @bs_system = BsSystem.new
+    @bs_project = BsProject.find(params[:bs_project_id])
+    @bs_system = @bs_project.bs_systems.build
   end
 
   # GET /bs_systems/1/edit
@@ -24,11 +26,12 @@ class BsSystemsController < ApplicationController
   # POST /bs_systems
   # POST /bs_systems.json
   def create
-    @bs_system = BsSystem.new(bs_system_params)
+    @bs_project = BsProject.find(params[:bs_project_id])
+    @bs_system = @bs_project.bs_systems.new(bs_system_params)
 
     respond_to do |format|
       if @bs_system.save
-        format.html { redirect_to @bs_system, notice: 'Bs system was successfully created.' }
+        format.html { redirect_to [@bs_project, @bs_system], notice: 'Bs system was successfully created.' }
         format.json { render :show, status: :created, location: @bs_system }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class BsSystemsController < ApplicationController
   def update
     respond_to do |format|
       if @bs_system.update(bs_system_params)
-        format.html { redirect_to @bs_system, notice: 'Bs system was successfully updated.' }
+        format.html { redirect_to [@bs_project, @bs_system], notice: 'Bs system was successfully updated.' }
         format.json { render :show, status: :ok, location: @bs_system }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class BsSystemsController < ApplicationController
   def destroy
     @bs_system.destroy
     respond_to do |format|
-      format.html { redirect_to bs_systems_url, notice: 'Bs system was successfully destroyed.' }
+      format.html { redirect_to @bs_project, notice: 'Bs system was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +67,8 @@ class BsSystemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bs_system
-      @bs_system = BsSystem.find(params[:id])
+      @bs_project = BsProject.find(params[:bs_project_id])
+      @bs_system = @bs_project.bs_systems.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -11,6 +11,6 @@ p#notice = notice
     dt.col-sm-3 = BsSystem.human_attribute_name(:description)
     dd.col-sm-9 = @bs_system.description
 
-=> link_to 'Edit', edit_bs_system_path(@bs_system)
+=> link_to 'Edit', edit_bs_project_bs_system_path(@bs_project, @bs_system)
 '|
-=< link_to 'Back', bs_systems_path
+=< link_to 'Back', bs_project_path(@bs_project)

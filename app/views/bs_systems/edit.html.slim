@@ -3,7 +3,9 @@
     h1.card-title = t('action.edit', name: BsSystem.model_name.human)
     == render 'form'
 
-=> link_to 'Show', @bs_system
+=> link_to 'Show', [@bs_project, @bs_system]
 '|
-=< link_to 'Back', bs_systems_path
+=< link_to 'Back', @bs_project
+'|
+= link_to 'Destroy',  [@bs_project, @bs_system], data: { confirm: 'Are you sure?' }, method: :delete
 

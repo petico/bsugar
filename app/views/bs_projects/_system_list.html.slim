@@ -1,0 +1,27 @@
+h1 =t('action.list', name: BsSystem.model_name.human) 
+
+table.table.table-hover.table-striped.table-bordered.table-sm
+  thead.thead-light
+    tr
+      th = BsSystem.human_attribute_name(:bs_project_id)
+      th = BsSystem.human_attribute_name(:name)
+      th = BsSystem.human_attribute_name(:description)
+
+  tbody
+    - @bs_systems.each do |bs_system|
+      tr.pt-tr data-href="#{bs_system_path(bs_system)}"
+        td = bs_system.bs_project_name
+        td = bs_system.name
+        td = bs_system.description
+
+.text-right
+  = link_to t('action.add', name: BsSystem.model_name.human), new_bs_system_path, class: "btn btn-primary"
+
+- content_for :localnavi do
+  ul.navbar-nav.flex-column.mr-auto
+
+    li |list2
+    li |list4
+
+javascript:
+  new TableClick
