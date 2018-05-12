@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   resources :bs_types
   resources :bs_dbs
-  resources :bs_columns
-  resources :bs_tables
+  
+  resources :bs_tables do 
+    resources :bs_columns
+  end
+
   resources :bs_projects do
     resources :bs_systems
   end
