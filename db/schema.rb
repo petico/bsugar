@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_05_11_145850) do
   create_table "bs_dbs", comment: "データベース", force: :cascade do |t|
     t.string "name", limit: 50, null: false, comment: "データベース名"
     t.boolean "delflag", default: false, null: false, comment: "削除フラグ"
+    t.boolean "is_sys", default: false, null: false, comment: "システム"
     t.datetime "created_at", comment: "登録日"
     t.datetime "updated_at", comment: "更新日"
   end

@@ -20,7 +20,7 @@
     .col-sm-9 = f.text_field :remark, class: "form-control"
   .form-group.row
     .col-sm-3 = f.label :bs_db_id
-    .col-sm-9 = f.collection_select :bs_db_id, BsDb.all, :id, :name, { include_blank: true}, class: "form-control"
+    .col-sm-9 = f.collection_select :bs_db_id, BsDb.all, :id, :name, {}, class: "form-control"
   .form-group.row
     .col-sm-3 = f.label :db_name
     .col-sm-9 = f.text_field :db_name, class: "form-control"
