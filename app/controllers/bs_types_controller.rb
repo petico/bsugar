@@ -69,6 +69,6 @@ class BsTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bs_type_params
-      params.require(:bs_type).permit(:bs_db_id, :name, :short_name, :is_scale, :delflag)
+      params.require(:bs_type).permit(:bs_db_id, :name, :short_name, :is_precision, :is_scale, :delflag)
     end
 end

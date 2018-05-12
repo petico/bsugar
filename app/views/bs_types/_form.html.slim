@@ -16,6 +16,9 @@
     .col-sm-3 = f.label :short_name
     .col-sm-9 = f.text_field :short_name, class: "form-control"
   .form-group.row
+    .col-sm-3 = f.label :is_precision
+    .col-sm-9 = f.check_box :is_precision, class: "form-control"
+  .form-group.row
     .col-sm-3 = f.label :is_scale
     .col-sm-9 = f.check_box :is_scale, class: "form-control"
   .form-group.row
