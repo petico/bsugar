@@ -60,7 +60,7 @@ class BsTablesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bs_table
@@ -69,6 +69,6 @@ class BsTablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bs_table_params
-      params.require(:bs_table).permit(:bs_system_id, :logical, :physical, :remark, :bs_db_id, :delflag)
+      params.require(:bs_table).permit(:bs_system_id, :logical, :physical, :remark, :bs_db_id, :db_name, :schema, :delflag)
     end
 end

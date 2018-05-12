@@ -1,0 +1,17 @@
+- bs_table.bs_columns.each do |bs_column|
+    tr.pt-tr data-href="#{bs_table_bs_column_path(bs_table, bs_column)}" data-rowno="#{bs_column.rowno}"
+        td.text-right = bs_column.rowno
+        td = bs_column.logical
+        td = bs_column.physical
+        td = disp_flg bs_column.pk
+        td = disp_flg bs_column.fk
+        td = disp_flg bs_column.uq
+        td = disp_flg bs_column.nn
+        td = bs_column.bs_type_name
+        td.text-right = bs_column.bs_type.is_precision ? bs_column.precision : ''
+        td.text-right = bs_column.bs_type.is_scale ? bs_column.scale : ''
+        td = bs_column.df
+        td = bs_column.remark
+        td.text-center
+            = link_to icon_btn("oi-pencil"), edit_bs_table_bs_column_path(bs_table, bs_column), remote: true, class: "btn btn-primary btn-sm"
+            = link_to icon_btn("oi-plus"), new_bs_table_bs_column_path(bs_table, rowno: bs_column.rowno), remote: true, class: "btn btn-success btn-sm"

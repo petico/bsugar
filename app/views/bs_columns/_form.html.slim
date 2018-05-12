@@ -1,63 +1,75 @@
-= form_for @bs_column do |f|
-  - if @bs_column.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@bs_column.errors.count, "error")} prohibited this bs_column from being saved:"
-      ul
-        - @bs_column.errors.full_messages.each do |message|
-          li = message
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        = BsColumn.model_name.human
+        button.close type="button" data-dismiss="modal" aria-label="閉じる"
+          span aria-hidden="true" &times;
+      .modal-body
+        = form_for [@bs_table, @bs_column], remote: true do |f|
+          - if @bs_column.errors.any?
+            .alert.alert-warning.alert-dismissible.fade.show role="alert"
+              ul
+                - @bs_column.errors.full_messages.each do |message|
+                  li = message
+              button.close type="button" data-dismiss="alert" aria-label="閉じる"
+                span aria-hidden="true" &times;
 
-  .field
-    = f.label :bs_table_id
-    = f.number_field :bs_table_id
-  .field
-    = f.label :rowno
-    = f.number_field :rowno
-  .field
-    = f.label :logical
-    = f.text_field :logical
-  .field
-    = f.label :physical
-    = f.text_field :physical
-  .field
-    = f.label :pk
-    = f.check_box :pk
-  .field
-    = f.label :fk
-    = f.check_box :fk
-  .field
-    = f.label :uq
-    = f.check_box :uq
-  .field
-    = f.label :nn
-    = f.check_box :nn
-  .field
-    = f.label :bs_type_id
-    = f.number_field :bs_type_id
-  .field
-    = f.label :precision
-    = f.number_field :precision
-  .field
-    = f.label :scale
-    = f.number_field :scale
-  .field
-    = f.label :df
-    = f.text_field :df
-  .field
-    = f.label :remark
-    = f.text_field :remark
-  .field
-    = f.label :remark
-    = f.text_field :remark
-  .field
-    = f.label :ver
-    = f.text_field :ver
-  .field
-    = f.label :rev
-    = f.number_field :rev
-  .field
-    = f.label :locked
-    = f.check_box :locked
-  .field
-    = f.label :delflag
-    = f.check_box :delflag
-  .actions = f.submit
+          .form-group.row
+            .col-sm-3 = f.label :bs_table_id
+            .col-sm-9 = f.label @bs_table.logical
+          .form-group.row
+            .col-sm-3 = f.label :rowno
+            .col-sm-9 
+              = f.label @bs_column.rowno
+              = f.hidden_field :rowno
+              = f.hidden_field :allocate
+          .form-group.row
+            .col-sm-3 = f.label :logical
+            .col-sm-9 = f.text_field :logical, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :physical
+            .col-sm-9 = f.text_field :physical, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :pk
+            .col-sm-9 = f.check_box :pk, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :fk
+            .col-sm-9 = f.check_box :fk, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :uq
+            .col-sm-9 = f.check_box :uq, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :nn
+            .col-sm-9 = f.check_box :nn, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :bs_type_id
+            .col-sm-9 = f.collection_select :bs_type_id, BsType.all, :id, :name, {}, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :precision
+            .col-sm-9 = f.number_field :precision, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :scale
+            .col-sm-9 = f.number_field :scale, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :df
+            .col-sm-9 = f.text_field :df, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :remark
+            .col-sm-9 = f.text_field :remark, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :ver
+            .col-sm-9 = f.text_field :ver, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :rev
+            .col-sm-9 = f.number_field :rev, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :locked
+            .col-sm-9 = f.check_box :locked, class: "form-control form-control-sm"
+          .form-group.row
+            .col-sm-3 = f.label :delflag
+            .col-sm-9 = f.check_box :delflag, class: "form-control form-control-sm"
+          .actions.text-right 
+            = button_tag(class: "btn btn-success btn-sm") do
+              = icon_btn("oi-circle-check", "Commit")
+          - if action_name == "edit"
+            = link_to icon_btn("oi-trash", "Destroy"), [@bs_table, @bs_column], data: { confirm: 'Are you sure?' }, method: :delete, remote: true, class: "btn btn-danger btn-sm"

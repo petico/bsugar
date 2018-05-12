@@ -1,26 +1,54 @@
 p#notice = notice
 
-.jumbotron
-  dl.row
-    dt.col-sm-3 = BsTable.human_attribute_name(:bs_system_id)
-    dd.col-sm-9 = @bs_table.bs_system_name
-  dl.row
-    dt.col-sm-3 = BsTable.human_attribute_name(:logical)
-    dd.col-sm-9 = @bs_table.logical
-  dl.row
-    dt.col-sm-3 = BsTable.human_attribute_name(:physical)
-    dd.col-sm-9 = @bs_table.physical
-  dl.row
-    dt.col-sm-3 = BsTable.human_attribute_name(:remark)
-    dd.col-sm-9 = @bs_table.remark
-  dl.row
-    dt.col-sm-3 = BsTable.human_attribute_name(:bs_db_id)
-    dd.col-sm-9 = @bs_table.bs_db_name
-  dl.row
-    dt.col-sm-3 = BsTable.human_attribute_name(:delflag)
-    dd.col-sm-9 = @bs_table.delflag
+.row
+  .col-sm-6.col-lg-3.bg-info = BsProject.human_attribute_name(:name)
+  .col-sm-6.col-lg-9 = @bs_table.bs_system.bs_project_name
+  .col-sm-6.col-lg-3.bg-info = BsSystem.human_attribute_name(:name)
+  .col-sm-6.col-lg-9 = @bs_table.bs_system_name
+  .col-sm-6.col-lg-3.bg-info = BsTable.human_attribute_name(:logical)
+  .col-sm-6.col-lg-3 = @bs_table.logical
+  .col-sm-6.col-lg-3.bg-info = BsTable.human_attribute_name(:physical)
+  .col-sm-6.col-lg-3 = @bs_table.physical
+  .col-sm-6.col-lg-3.bg-info = BsTable.human_attribute_name(:db_name)
+  .col-sm-6.col-lg-3 = @bs_table.db_name
+  .col-sm-6.col-lg-3.bg-info = BsTable.human_attribute_name(:schema)
+  .col-sm-6.col-lg-3 = @bs_table.schema
+  .col-sm-6.col-lg-3.bg-info = BsTable.human_attribute_name(:bs_db_id)
+  .col-sm-6.col-lg-3 = @bs_table.bs_db_name
+  .col-sm-6.col-lg-3.bg-info = BsTable.human_attribute_name(:remark)
+  .col-sm-6.col-lg-3 = @bs_table.remark
 
+.row
+  .table-responsive
+    table.table.table-hover.table-striped.table-bordered.table-sm.text-nowrap
+      thead.thead-light
+        tr
+          th = BsColumn.human_attribute_name(:rowno)
+          th = BsColumn.human_attribute_name(:logical)
+          th = BsColumn.human_attribute_name(:physical)
+          th = BsColumn.human_attribute_name(:pk)
+          th = BsColumn.human_attribute_name(:fk)
+          th = BsColumn.human_attribute_name(:uq)
+          th = BsColumn.human_attribute_name(:nn)
+          th = BsColumn.human_attribute_name(:bs_type_id)
+          th = BsColumn.human_attribute_name(:precision)
+          th = BsColumn.human_attribute_name(:scale)
+          th = BsColumn.human_attribute_name(:df)
+          th = BsColumn.human_attribute_name(:remark)
+          th
+        tbody id="column-list"
+          = render 'columns', bs_table: @bs_table
+    .text-right
+      = link_to icon_btn("oi-plus","new Column"), new_bs_table_bs_column_url(@bs_table), remote: true, class: "btn btn-success btn-sm"
 
-=> link_to 'Edit', edit_bs_table_path(@bs_table)
-'|
-=< link_to 'Back', bs_tables_path
+- content_for :localnavi do
+  ul.navbar-nav.flex-column.mr-auto
+    li = link_to t('action.pdf'), bs_table_path(@bs_table, format: 'pdf'), class: "btn btn-secondary pt-side-btn"
+    li = link_to 'Edit', edit_bs_table_path(@bs_table), class: "btn btn-secondary pt-side-btn"
+    li = link_to 'Back', bs_tables_path, class: "btn btn-secondary pt-side-btn"
+
+.modal.fade id="user-modal" tabindex="-1" role="dialog" aria-hidden="true"
+
+javascript:
+  new TableClick
+

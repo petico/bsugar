@@ -55,6 +55,5 @@ p
   strong Delflag:
   = @bs_column.delflag
 
-=> link_to 'Edit', edit_bs_column_path(@bs_column)
-'|
-=< link_to 'Back', bs_columns_path
+=> link_to 'Edit', edit_bs_table_bs_column_path(@bs_table, @bs_column)
+

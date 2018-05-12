@@ -1,0 +1,52 @@
+report.start_new_page do |page|
+  page.values lbl_project:  (BsSystem.human_attribute_name :bs_project_id),
+              lbl_system:   (BsTable.human_attribute_name :bs_system_id),
+              lbl_logical:  (BsTable.human_attribute_name :logical),
+              lbl_physical: (BsTable.human_attribute_name :physical),
+              lbl_db_name:  (BsTable.human_attribute_name :db_name),
+              lbl_schema:   (BsTable.human_attribute_name :schema),
+              lbl_updated_at:   (BsTable.human_attribute_name :updated_at),
+              lbl_remark:   (BsTable.human_attribute_name :remark),
+              project_name: @bs_table.bs_system.bs_project_name, 
+              system_name: @bs_table.bs_system_name,
+              logical:      @bs_table.logical,
+              physical:     @bs_table.physical,
+              db_name:      @bs_table.db_name,
+              schema:       @bs_table.schema,
+#              create_user:  @bs_table.cruser.try(:name),
+#              update_user:  @bs_table.upuser.try(:name),
+              remark:       @bs_table.remark,
+              updated_at:   @bs_table.updated_at.present? ? @bs_table.updated_at.to_s(:date) : "",
+              lbl_copy_right: "Copyright (c) 2015 Peticorp.",
+              lbl_title: "テーブル設計書"
+  page.list.header.values lbl_col_rowno: "№",
+                 lbl_col_logical: (BsColumn.human_attribute_name :logical),
+                 lbl_col_physical: (BsColumn.human_attribute_name :physical),
+                 lbl_col_pk: (BsColumn.human_attribute_name :pk),
+                 lbl_col_fk: (BsColumn.human_attribute_name :fk),
+                 lbl_col_type: (BsColumn.human_attribute_name :datatype),
+                 lbl_col_df: (BsColumn.human_attribute_name :df),
+                 lbl_col_precision: (BsColumn.human_attribute_name :precision),
+                 lbl_col_scale: (BsColumn.human_attribute_name :scale),
+                 lbl_col_uq: (BsColumn.human_attribute_name :uq),
+                 lbl_col_nn: (BsColumn.human_attribute_name :nn),
+                 lbl_col_remark: (BsColumn.human_attribute_name :remark)
+  
+  @bs_table.bs_columns.each do |bcolumn|
+    page.list.add_row do |row|
+      row.values col_rowno:     bcolumn.rowno, 
+                 col_logical:   bcolumn.logical, 
+                 col_physical:  bcolumn.physical, 
+                 col_pk:        disp_flg(bcolumn.pk),
+                 col_fk:        disp_flg(bcolumn.fk),
+                 col_type:      bcolumn.bs_type_short_name,
+                 col_df:        bcolumn.df,
+                 col_precision: bcolumn.precision,
+                 col_scale:     bcolumn.scale,
+                 col_nn:        disp_flg(bcolumn.nn),
+                 col_uq:        disp_flg(bcolumn.uq),
+                 col_remark:    bcolumn.remark
+    end
+  end
+  
+end

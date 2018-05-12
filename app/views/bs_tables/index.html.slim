@@ -7,8 +7,7 @@ table.table.table-hover.table-striped.table-bordered.table-sm
       th = BsTable.human_attribute_name(:logical)
       th = BsTable.human_attribute_name(:physical)
       th = BsTable.human_attribute_name(:remark)
-      th = BsTable.human_attribute_name(:bs_db_id)
-      
+      th = t('action.pdf')
   tbody
     - @bs_tables.each do |bs_table|
       tr.pt-tr data-href="#{bs_table_path(bs_table)}"
@@ -16,7 +15,7 @@ table.table.table-hover.table-striped.table-bordered.table-sm
         td = bs_table.logical
         td = bs_table.physical
         td = bs_table.remark
-        td = bs_table.bs_db_id
+        td = link_to t('action.pdf'), bs_table_path(bs_table, format: 'pdf')
       
 .text-right
   = link_to t('action.add', name: BsTable.model_name.human), new_bs_table_path, class: "btn btn-primary"

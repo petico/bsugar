@@ -1,0 +1,6 @@
+<% if @status == 'success' %>
+  $("#column-list").html("<%= j(render("/bs_tables/columns", bs_table: @bs_table)) %>");
+  $("#user-modal").modal("hide");
+<%  elsif @status == 'fail' %>
+  $("#user-modal").html("<%= escape_javascript(render 'form') %>")
+<% end %>
