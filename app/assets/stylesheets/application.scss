@@ -1,5 +1,10 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 /*
 *= require jquery-ui/datepicker
+*= require iconic/css/open-iconic-bootstrap.min.css
 */
 @import "bootstrap";
+
+.pt-side-btn{
+    width: 100%;
+}
