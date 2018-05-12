@@ -1,4 +1,4 @@
-class @BsInit
+class @PetiInit
   constructor: ->
     @initialize_petisales()
   initialize_petisales: ->
