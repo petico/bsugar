@@ -3,9 +3,10 @@
     h1.card-title = t('action.edit', name: BsProject.model_name.human)
     == render 'form'
 
-=> link_to 'Show', @bs_project
-'|
-=< link_to 'Back', bs_projects_path
-'|
-= link_to 'Destroy', @bs_project, data: { confirm: 'Are you sure?' }, method: :delete
+
+- content_for :localnavi do
+  ul.navbar-nav.flex-column.mr-auto
+    li = link_to 'Show', @bs_project, class: "btn btn-primary pt-side-btn"
+    li = link_to 'Back', bs_projects_path, class: "btn btn-primary pt-side-btn"
+    li = link_to 'Destroy', @bs_project, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger pt-side-btn"
 

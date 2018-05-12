@@ -7,10 +7,6 @@ p#notice = notice
   dl.row
     dt.col-sm-3 = BsProject.human_attribute_name(:description)
     dd.col-sm-9 = @bs_project.description
-  dl.row
-    dt.col-sm-12
-      .text-right
-        = link_to 'Edit', edit_bs_project_path(@bs_project), class: "btn btn-primary"
 
 table.table.table-hover.table-striped.table-bordered.table-sm
   thead.thead-light
@@ -28,8 +24,9 @@ table.table.table-hover.table-striped.table-bordered.table-sm
 - content_for :localnavi do
   ul.navbar-nav.flex-column.mr-auto
 
-    li = link_to 'Back', bs_projects_path
-    li = link_to 'add system', new_bs_project_bs_system_path(@bs_project)
+    li = link_to 'Back', bs_projects_path, class: "btn btn-secondary pt-side-btn"
+    li = link_to 'Edit', edit_bs_project_path(@bs_project), class: "btn btn-primary pt-side-btn"
+    li = link_to 'add system', new_bs_project_bs_system_path(@bs_project), class: "btn btn-success pt-side-btn"
 
 javascript:
   new TableClick

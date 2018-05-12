@@ -11,6 +11,31 @@ p#notice = notice
     dt.col-sm-3 = BsSystem.human_attribute_name(:description)
     dd.col-sm-9 = @bs_system.description
 
-=> link_to 'Edit', edit_bs_project_bs_system_path(@bs_project, @bs_system)
-'|
-=< link_to 'Back', bs_project_path(@bs_project)
+h1 =t('action.list', name: BsTable.model_name.human)
+.table-responsive
+  table.table.table-hover.table-striped.table-bordered.table-sm.text-nowrap
+    thead.thead-light
+      tr
+        th = BsTable.human_attribute_name(:bs_system_id)
+        th = BsTable.human_attribute_name(:logical)
+        th = BsTable.human_attribute_name(:physical)
+        th = BsTable.human_attribute_name(:remark)
+        th = t('action.pdf')
+    tbody
+      - @bs_system.bs_tables.each do |bs_table|
+        tr.pt-tr data-href="#{bs_table_path(bs_table)}"
+          td = bs_table.bs_system_name
+          td = bs_table.logical
+          td = bs_table.physical
+          td = bs_table.remark
+          td = link_to t('action.pdf'), bs_table_path(bs_table, format: 'pdf'), class: "btn btn-secondary btn-sm"
+
+- content_for :localnavi do
+  ul.navbar-nav.flex-column.mr-auto
+
+    li = link_to 'Edit', edit_bs_project_bs_system_path(@bs_project, @bs_system), class: "btn btn-primary pt-side-btn"
+    li = link_to 'Back', bs_project_path(@bs_project), class: "btn btn-secondary pt-side-btn"
+
+
+javascript:
+  new TableClick

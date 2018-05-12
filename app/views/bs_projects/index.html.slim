@@ -12,14 +12,10 @@ table.table.table-hover.table-striped.table-bordered.table-sm
         td = bs_project.name
         td = bs_project.description
 
-.text-right
-  = link_to t('action.add', name: BsProject.model_name.human), new_bs_project_path, class: "btn btn-primary"
-
 - content_for :localnavi do
   ul.navbar-nav.flex-column.mr-auto
-
-    li |list2
-    li |list4
+    li = link_to t('action.add', name: BsProject.model_name.human), new_bs_project_path, class: "btn btn-primary"
+    
 
 javascript:
   new TableClick

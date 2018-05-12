@@ -3,4 +3,6 @@
     h1.card-title = t('action.new', name: BsSystem.model_name.human)
     == render 'form'
 
-= link_to 'Back', @bs_projecy
+- content_for :localnavi do
+  ul.navbar-nav.flex-column.mr-auto
+    li = link_to 'Back', @bs_project, class: "btn btn-secondary pt-side-btn"
