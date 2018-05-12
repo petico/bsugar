@@ -43,7 +43,7 @@
             .col-sm-9 = f.check_box :nn, class: "form-control form-control-sm"
           .form-group.row
             .col-sm-3 = f.label :bs_type_id
-            .col-sm-9 = f.collection_select :bs_type_id, BsType.all, :id, :name, {}, class: "form-control form-control-sm"
+            .col-sm-9 = f.collection_select :bs_type_id, @bs_table.bs_db.bs_types.all, :id, :name, {}, class: "form-control form-control-sm"
           .form-group.row
             .col-sm-3 = f.label :precision
             .col-sm-9 = f.number_field :precision, class: "form-control form-control-sm"
