@@ -66,4 +66,4 @@ gem 'jquery-ui-rails'
 gem 'config'
 
 # PDF
-gem 'thinreports', '~> 0.10.2'
+gem 'thinreports-rails'
