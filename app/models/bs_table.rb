@@ -1,6 +1,7 @@
-#############################################################
-#
-#############################################################
+###############################################
+# テーブルモデル
+# created_at 2018.05.11 Petico
+###############################################
 class BsTable < ApplicationRecord
     belongs_to :bs_db
     belongs_to :bs_system
@@ -15,6 +16,9 @@ class BsTable < ApplicationRecord
     validates :physical, presence: true, length:{ maximum: 50 } 
     validates :remark, length:{ maximum: 100 } 
 
+    # 行番号の再構成
+    # 行追加、行削除時に実行する。
+    # 追加行はallocate:trueで追加される
     def self.allocate_rowno(id)
         bs_columns = BsTable.find(id).bs_columns.order("rowno asc, allocate desc")
         rowno = 1
@@ -24,5 +28,11 @@ class BsTable < ApplicationRecord
             bs_column.save
             rowno += 1
         end
+    end
+
+    # 次行番号を取得
+    def next_rowno
+      maxcolumn = self.bs_columns.max_by{|a| a.rowno }
+      return maxcolumn ? maxcolumn.rowno + 1 : 1
     end
 end

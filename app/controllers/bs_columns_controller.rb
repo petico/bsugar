@@ -1,3 +1,7 @@
+###############################################
+# カラムコントローラ
+# created_at 2018.05.11 Petico
+###############################################
 class BsColumnsController < ApplicationController
   before_action :set_bs_column, only: [:show, :edit, :update, :destroy]
 
@@ -17,13 +21,8 @@ class BsColumnsController < ApplicationController
   def new
     @bs_table = BsTable.find(params[:bs_table_id])
     allocate = params[:rowno].present? 
-    if allocate
-      rowno = params[:rowno]
-    else
-      rowno = @bs_table.bs_columns.max_by{|a| a.rowno }.rowno + 1
-    end
+    rowno = allocate ? params[:rowno] : @bs_table.next_rowno
     @bs_column = @bs_table.bs_columns.build(rowno: rowno, allocate: allocate)
-    
  end
 
   # GET /bs_columns/1/edit
