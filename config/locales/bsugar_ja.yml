@@ -33,7 +33,28 @@ ja:
         bs_system_id: システム
         logical: 論理名
         physical: 物理名
+        remark: 備考
         bs_db_id: DB
+        db_name: DB名
+        schema: スキーマ名
+      bs_column:
+        <<: *attr_default
+        bs_table_id: テーブル名
+        rowno: No.
+        logical: 論理名
+        physical: 物理名
+        pk: PK
+        fk: FK
+        uq: UQ
+        nn: NN
+        bs_type_id: データ型
+        precision: 精度
+        scale: 小数
+        df: 規定値
+        remark: 備考
+        var: バージョン
+        rev: 改訂
+        locked: ロック
       bs_db:
         <<: *attr_default
         name: データベース名
@@ -42,7 +63,8 @@ ja:
         bs_db_id: データベース
         name: 正式名称
         short_name: 簡易名称
-        is_scale: スケール
+        is_precision: 精度入力
+        is_scale: スケール入力
 
         
         

@@ -21,6 +21,7 @@ class CreateBsColumns < ActiveRecord::Migration[5.2]
       t.string :ver                     , limit: 20       , comment: "バージョン"
       t.integer :rev      , null: false , default: 1      , comment: "改訂"
       t.boolean :locked   , null: false , default: false  , comment: "編集ロック"
+      t.boolean :allocate , null: false , default: false  , comment: "割当フラグ"
       t.boolean :delflag  , null: false , default: false  , comment: "削除フラグ"
       t.datetime :created_at                              , comment: "登録日"
       t.datetime :updated_at                              , comment: "更新日"
