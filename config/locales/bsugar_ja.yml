@@ -55,6 +55,7 @@ ja:
         var: バージョン
         rev: 改訂
         locked: ロック
+        flag: フラグ
       bs_db:
         <<: *attr_default
         name: データベース名

@@ -11,7 +11,7 @@
         td.text-right = bs_column.bs_type.is_precision ? bs_column.precision : ''
         td.text-right = bs_column.bs_type.is_scale ? bs_column.scale : ''
         td = bs_column.df
-        td = bs_column.remark
+        td = simple_format(h bs_column.remark)
         td.text-center
             = link_to icon_btn("oi-pencil"), edit_bs_table_bs_column_path(bs_table, bs_column), remote: true, class: "btn btn-primary btn-sm"
             = link_to icon_btn("oi-plus"), new_bs_table_bs_column_path(bs_table, rowno: bs_column.rowno), remote: true, class: "btn btn-success btn-sm"
