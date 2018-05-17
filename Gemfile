@@ -68,3 +68,5 @@ gem 'config'
 
 # PDF
 gem 'thinreports-rails'
+
+gem 'gretel'
