@@ -11,6 +11,11 @@ crumb :new_bs_projects do
   parent :bs_projects
 end
 
+crumb :new_bs_projects do
+  link t('action.new', name: BsProject.model_name.human), new_bs_project_path
+  parent :bs_projects
+end
+
 # crumb :project do |project|
 #   link project.name, project_path(project)
 #   parent :projects
