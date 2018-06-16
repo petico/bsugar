@@ -14,4 +14,7 @@
   .form-group.row
     .col-sm-3 = f.label :description
     .col-sm-9 = f.text_field :description, class: "form-control"
+  .form-group.row
+    .col-sm-3 = f.label :db_connection_id
+    .col-sm-9 = f.collection_select :db_connection_id, DbConnection.all, :id, :name, {include_blank: true}, class: "form-control"
   .actions.text-right = f.submit class:"btn btn-success"

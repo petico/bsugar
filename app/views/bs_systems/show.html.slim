@@ -10,6 +10,17 @@ p#notice = notice
   dl.row
     dt.col-sm-3 = BsSystem.human_attribute_name(:description)
     dd.col-sm-9 = @bs_system.description
+  -if @bs_system.db_connection_id
+    dl.row
+      dt.col-sm-3 = DbConnection.human_attribute_name(:host)
+      dd.col-sm-9 = @bs_system.db_connection.host
+    dl.row
+      dt.col-sm-3 = DbConnection.human_attribute_name(:port)
+      dd.col-sm-9 = @bs_system.db_connection.port
+  -else
+    dl.row
+      dt.col-sm-3 = BsSystem.human_attribute_name(:db_connection)
+        dd.col-sm-9 = 
 
 h1 =t('action.list', name: BsTable.model_name.human)
 .table-responsive

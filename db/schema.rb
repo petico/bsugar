@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_11_145850) do
+ActiveRecord::Schema.define(version: 2018_05_19_025053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_05_11_145850) do
     t.boolean "delflag", default: false, null: false, comment: "削除フラグ"
     t.datetime "created_at", comment: "登録日"
     t.datetime "updated_at", comment: "更新日"
+    t.integer "db_connection_id", comment: "DBコネクションID"
   end
 
   create_table "bs_tables", comment: "テーブル", force: :cascade do |t|
@@ -87,6 +88,19 @@ ActiveRecord::Schema.define(version: 2018_05_11_145850) do
     t.boolean "delflag", default: false, null: false, comment: "削除フラグ"
     t.datetime "created_at", comment: "登録日"
     t.datetime "updated_at", comment: "更新日"
+  end
+
+  create_table "db_connections", comment: "データベース接続", force: :cascade do |t|
+    t.string "name", comment: "データベース接続名"
+    t.integer "bs_db_id", comment: "データベースID"
+    t.string "host", comment: "ホスト名"
+    t.string "port", comment: "ポート"
+    t.string "username", comment: "ユーザ名"
+    t.string "password", comment: "パスワード"
+    t.string "schema", comment: "スキーマ名"
+    t.string "dbname", comment: "データベース名"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

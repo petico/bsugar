@@ -1,0 +1,31 @@
+p#notice = notice
+
+.jumbotron
+  dl.row
+    dt.col-sm-3 = DbConnection.human_attribute_name(:name)
+    dt.col-sm-9 = @db_connection.name
+  dl.row
+    dt.col-sm-3 = DbConnection.human_attribute_name(:bs_db_id)
+    dt.col-sm-9 = @db_connection.bs_db_name
+  dl.row
+    dt.col-sm-3 = DbConnection.human_attribute_name(:host)
+    dt.col-sm-9 = @db_connection.host
+  dl.row
+    dt.col-sm-3 = DbConnection.human_attribute_name(:port)
+    dt.col-sm-9 = @db_connection.port
+  dl.row
+    dt.col-sm-3 = DbConnection.human_attribute_name(:username)
+    dt.col-sm-9 = @db_connection.username
+  dl.row
+    dt.col-sm-3 = DbConnection.human_attribute_name(:password)
+    dt.col-sm-9 = @db_connection.password
+  dl.row
+    dt.col-sm-3 = DbConnection.human_attribute_name(:schema)
+    dt.col-sm-9 = @db_connection.schema
+  dl.row
+    dt.col-sm-3 = DbConnection.human_attribute_name(:dbname)
+    dt.col-sm-9 = @db_connection.dbname
+
+=> link_to 'Edit', edit_db_connection_path(@db_connection)
+'|
+=< link_to 'Back', db_connections_path

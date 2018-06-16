@@ -6,6 +6,7 @@ table.table.table-hover.table-striped.table-bordered.table-sm
       th = BsSystem.human_attribute_name(:bs_project_id)
       th = BsSystem.human_attribute_name(:name)
       th = BsSystem.human_attribute_name(:description)
+      th = BsSystem.human_attribute_name(:db_connection)
 
   tbody
     - @bs_systems.each do |bs_system|
@@ -13,6 +14,7 @@ table.table.table-hover.table-striped.table-bordered.table-sm
         td = bs_system.bs_project_name
         td = bs_system.name
         td = bs_system.description
+        td = bs_system.db_connection_id
 
 .text-right
   = link_to t('action.add', name: BsSystem.model_name.human), new_bs_system_path, class: "btn btn-primary"

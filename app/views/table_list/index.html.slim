@@ -1,0 +1,13 @@
+= @db_connection.name
+table.table.table-hover.table-striped.table-bordered.table-sm
+  thead.thead-light
+    tr
+      th = DbConnection.human_attribute_name(:name)
+      th = DbConnection.human_attribute_name(:name)
+  tbody
+    - @tables.each do |table|
+      tr.pt-tr
+        td = table
+        td 
+          = link_to t("action.import"), db_connection_table_import_index_path(@db_connection, tablename: table), class: "btn btn-success"
+

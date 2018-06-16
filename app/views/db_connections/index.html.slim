@@ -1,0 +1,28 @@
+h1 =t('action.list', name: DbConnection.model_name.human) 
+
+table.table.table-hover.table-striped.table-bordered.table-sm
+  thead.thead-light
+    tr
+      th = DbConnection.human_attribute_name(:name)
+      th = DbConnection.human_attribute_name(:bs_db_id)
+      th = DbConnection.human_attribute_name(:host)
+      th = DbConnection.human_attribute_name(:post)
+      th = DbConnection.human_attribute_name(:schema)
+      th = DbConnection.human_attribute_name(:dbname)
+
+  tbody
+    - @db_connections.each do |db_connection|
+      tr.pt-tr data-href="#{db_connection_path(db_connection)}"
+        td = db_connection.name
+        td = db_connection.bs_db_name
+        td = db_connection.host
+        td = db_connection.port
+        td = db_connection.schema
+        td = db_connection.dbname
+        
+br
+
+= link_to 'New Db connection', new_db_connection_path
+
+javascript:
+  new TableClick

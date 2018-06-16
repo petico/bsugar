@@ -24,6 +24,7 @@ html
               a.nav-link.dropdown-toggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                 = t('menu.system')
               .dropdown-menu aria-labelledby="navbarDropdown"
+                = link_to DbConnection.model_name.human, db_connections_path, class: "dropdown-item"
                 = link_to BsDb.model_name.human, bs_dbs_path, class: "dropdown-item"
                 = link_to BsType.model_name.human, bs_types_path, class: "dropdown-item"
     .container-fluid

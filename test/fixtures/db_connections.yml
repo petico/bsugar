@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  bs_db_id: 1
+  host: MyString
+  port: MyString
+  schema: MyString
+  dbname: MyString
+
+two:
+  name: MyString
+  bs_db_id: 1
+  host: MyString
+  port: MyString
+  schema: MyString
+  dbname: MyString

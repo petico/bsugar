@@ -73,6 +73,6 @@ class BsSystemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bs_system_params
-      params.require(:bs_system).permit(:bs_project_id, :name, :description, :delflag)
+      params.require(:bs_system).permit(:bs_project_id, :name, :description, :db_connection_id, :delflag)
     end
 end
