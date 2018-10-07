@@ -71,3 +71,5 @@ gem 'config'
 gem 'thinreports-rails'
 
 gem 'gretel'
+
+gem 'rspec-rails'
